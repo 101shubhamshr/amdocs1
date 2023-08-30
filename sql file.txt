@@ -1,0 +1,50 @@
+create database project;
+use project;
+
+create table Customer(c_Id int primary key not null auto_increment ,c_Name Varchar(20) not null,
+c_Email Varchar(40) not null
+,c_ContactNumber varchar(13) not null,c_Address Varchar(40)not null);
+drop table Customer;
+alter table Customer modify column c_Id int  auto_increment primary key ;  
+desc Customer;
+#insert into Customer(c_Name,c_Email,c_ContactNumber,c_Address) values(10,"xyz",
+#"prateekdubey9584@gmail.com","7806071132","Konark Virtue Mundhwa Pune Maharastra");
+insert into Customer values(null,"xyz",
+"prateekdubey9584@gmail.com","7806071132","Konark Virtue Mundhwa Pune Maharastra");
+select * from Customer;
+create table Advocate(a_Id int primary key, a_Name varchar(20) not null
+
+,a_ContactNumber varchar(13) not null,a_Address varchar(40) not null);
+desc Advocate;
+##update Customer set c_id=201061,c_name="Saltu" where c_id = 075; 
+INSERT INTO Advocate values(1,"Piyush Devda ","8349126822","Konark Virtue");
+Insert into Advocate values(2,"Nitamshu Jain","7806071132","Konark Virtue");
+Insert into Advocate values(3,"Shubham Sharma","7806071132","Haddapsar");
+
+select * from Advocate;
+#Create table Services(s_Id int primary key,s_Name varchar(40) not null,s_Discreption
+#varchar(40) not null,s_Charge int not null);
+#insert into Services values(1,"Consultancy","Giving Advices","1000");
+#insert into Services values(2,"Preparation of Documents","Preparing the documents on any matter","5000");
+#insert into Services values(3,"Representation","Representing the client in the court","10000");
+
+#desc Services;
+Create Table Appointment (ap_Id int primary key auto_increment,c_Id int not null,
+constraint c_fk foreign key (c_Id) References Customer(c_id),
+a_Id int not null ,
+constraint a_fk foreign key(a_Id) references Advocate(a_Id));
+drop table Appointment;
+Alter table Appointment add column ap_Date date not null;
+desc Appointment;
+
+#delete  from Customer where c_id = 201061;
+#insert into Customer values(200601,"Piyush Devday",
+#"prateekdubey9584@gmail.com","7806071132","Konark Virtue Mundhwa Pune Maharastra");
+select * from Customer; 
+#select * from Services;
+select *  from Appointment;
+
+select * from Advocate;
+desc Appointment;
+#delete from Appointment where ap_Id=5;
+#insert into Appointment values(3,201061,1,1, "2023/08/30");
